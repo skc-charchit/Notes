@@ -1,0 +1,15 @@
+Introduction to Deep Learning Concepts
+
+Data Science overlaps with AI/ML/DL, involving data analysis, algorithm development, and creating AI applications.
+
+Key takeaways:
+DL aims to mimic human learning.
+DL popularity driven by massive data growth and hardware improvements.
+Interviews often focus on perceptrons, forward/backward propagation, activation functions, loss functions, and optimizers.
+
+1. Perceptron: The basic unit of neural networks; modeled on biological neurons with input, weights, bias, activation function, hidden layers, and output.
+2. Forward Propagation: Input → weighted sum + bias → activation function → output.
+3. Backward Propagation: Uses loss function (difference between predicted and real output) to update weights via optimizers (e.g., gradient descent).
+4. Activation Functions Introduced: Sigmoid (for binary classification), linear (for regression).
+Interview Tips: Understand weights, biases, neurons, layers, activation functions, forward/backward propagation, and optimizers.
+
