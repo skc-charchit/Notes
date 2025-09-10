@@ -1,0 +1,17 @@
+Terminology and Concepts
+===================================================================================================
+
+Perceptron: Basic neural unit modeled on biological neurons.
+Forward Propagation: Data flows from input to output layer.
+Backward Propagation: Error signal flows backward to update weights.
+Activation Function: Introduces non-linearity enabling neural networks to learn complex patterns.
+Loss Function: Quantifies error between predicted and true labels.
+Optimizer: Algorithm to minimize loss by updating weights (SGD, Adam, etc.).
+Epoch: One full pass over the training dataset.
+Batch Size: Number of samples processed before updating weights.
+Padding: Adding border pixels to maintain spatial size in convolution.
+Stride: Step size of filter movement in convolution.
+Pooling: Downsampling operation to reduce spatial size and computation.
+Flattening: Conversion of multi-dimensional data to 1D vector.
+Black Box Model: Model whose internal logic is not interpretable (ANN, CNN).
+White Box Model: Interpretable model (Decision tree, linear regression).
