@@ -1,0 +1,33 @@
+Dataset: Customer churn data with categorical features (e.g., geography, gender) and numerical features.
+
+A. Data Preprocessing:
+Split dataset into independent (X) and dependent (Y) features.
+Handle categorical variables with one-hot encoding (using pandas get_dummies).
+Split into training and testing sets.
+Apply feature scaling (StandardScaler) to improve convergence.
+
+B. ANN Model Creation:
+Use TensorFlow 2.x with integrated Keras API.
+Initialize a Sequential model.
+Add input layer and hidden layers using Dense layers with ReLU activation.
+Add output layer with sigmoid activation for binary classification.
+Optionally add Dropout layers to reduce overfitting by randomly disabling neurons during training.
+
+C. Model Compilation:
+Optimizer: Adam (can customize learning rate).
+Loss function: Binary Cross Entropy.
+Metric: Accuracy.
+
+D. Training:
+Use fit() with validation split and early stopping callback to prevent overfitting and unnecessary epochs.
+
+F. Evaluation:
+Generate confusion matrix and accuracy score on test set.
+
+G. Model Weights:
+Extract weights for inspection or saving.
+
+7.Black Box vs White Box Models:
+ANN, Random Forest, CNN classified as black box due to complexity and opacity.
+Decision trees, linear regression considered white box as they are interpretable.
+Explainable AI: Emerging research to make black box models interpretable.

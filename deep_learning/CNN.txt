@@ -1,0 +1,46 @@
+Convolutional Neural Networks (CNN) Theory and Practical Example
+
+CNN Overview:
+Inspired by human visual cortex with multiple processing layers (V1-V7).
+Designed to process images/videos, extracting features at multiple levels.
+
+Image Basics:
+Grayscale images: single channel, pixel values 0–255.
+RGB images: three channels (Red, Green, Blue), each 0–255; image shape (height × width × 3).
+
+Convolution Operation:
+Apply small filters/kernels (e.g., 3×3) sliding over input image.
+Multiply filter values with corresponding pixels, sum result → single output pixel.
+Stride controls step size of filter movement.
+Output size (width/height) calculated as:
+((N + 2P - F) / S) + 1
+where N=image size, F=filter size, P=padding, S=stride.
+
+Padding:
+Added layers of pixels (usually zeros) around input to preserve spatial dimensions.
+
+Activation Function:
+Apply ReLU after convolution to introduce non-linearity and enable backpropagation.
+
+Max Pooling:
+Downsamples feature maps by taking the maximum value in a window (e.g., 2×2).
+Helps achieve translation invariance and reduces computational load.
+
+Flattening:
+Converts pooled feature maps into a 1D vector to feed into fully connected layers (ANN).
+
+Stacking:
+Multiple convolution + pooling layers can be stacked to learn hierarchical features.
+
+Practical CNN Implementation (using TensorFlow/Keras):
+Use CIFAR-10 dataset (10 classes, 6000 images each).
+Normalize pixel values to [0,1].
+Build model with multiple Conv2D (filters=32, 64), ReLU, MaxPooling2D layers.
+Flatten output and add Dense layers for classification.
+Use Adam optimizer and sparse categorical crossentropy loss.
+Achieve ~70-79% accuracy after training for 10 epochs.
+
+Additional Notes:
+Number of filters and layers are hyperparameters tuned based on task/dataset.
+Early stopping can be used to avoid overfitting.
+CNNs excel at image classification, object detection, and related vision tasks.

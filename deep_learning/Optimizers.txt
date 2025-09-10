@@ -1,0 +1,12 @@
+Optimizers: Gradient Descent Variants and Adam
+
+1. Gradient Descent (GD): Updates weights using full dataset per iteration; resource-intensive but stable convergence.
+2. Stochastic Gradient Descent (SGD): Updates weights per sample; less resource but noisy and slower convergence.
+3. Mini-batch SGD: Batch size between full GD and SGD; balances noise and resource usage.
+4. SGD with Momentum: Adds exponential moving average to gradients to smooth noisy updates, speeding convergence.
+5. Adagrad: Adaptive learning rate per parameter, decreases learning rate over time.
+6. RMSProp: Modifies Adagrad by using exponential moving average of squared gradients to prevent aggressive decay of learning rate.
+7. Adam Optimizer: Combines momentum and RMSProp; currently the most popular optimizer providing fast and smooth convergence.
+
+Important Concepts: Learning rate, exponential weighted moving average, smoothing gradients, adaptive learning rates.
+Epochs, Iterations, Batches: Explained clearly with relation to data size and batch size.

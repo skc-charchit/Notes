@@ -1,0 +1,32 @@
+Chain Rule, Vanishing Gradient Problem, Activation Functions, and Loss Functions
+
+1. Chain Rule in Backpropagation: Explains how derivatives of loss w.r.t weights are computed through layers via chain rule, enabling weight updates.
+
+2. Vanishing Gradient Problem:
+Happens with sigmoid activation where derivatives shrink (0 to 0.25), causing gradients to vanish in deep networks.
+Leads to weights not updating effectively, slowing or stopping learning.
+
+A. Activation Functions:
+1. Sigmoid: Smooth gradient but suffers vanishing gradient and is not zero-centered.
+2. Tanh: Zero-centered, derivative range (0 to 1), better than sigmoid but still susceptible to vanishing gradients.
+3. ReLU (Rectified Linear Unit): Most popular; output is max(0, x), fast computation, solves vanishing gradient but can lead to “dead neurons” (zero gradients for negative inputs).
+4. Leaky ReLU: Variant of ReLU allowing small gradient for negative inputs to avoid dead neurons.
+5. ELU, PReLU, Swish: Other advanced activations addressing ReLU limitations.
+
+
+B. Which to use?
+1. Hidden layers: ReLU or its variants.
+2. Binary classification output layer: Sigmoid.
+3. Multi-class classification output layer: Softmax.
+4. Regression output layer: Linear activation.
+
+C. Loss Functions:
+
+1. For regression:
+Mean Squared Error (MSE): Sensitive to outliers, quadratic curve, single global minimum.
+Mean Absolute Error (MAE): Robust to outliers, uses absolute values, but harder to optimize.
+Huber Loss: Combines MSE and MAE, less sensitive to outliers.
+
+2. For classification:
+Binary Cross Entropy (log loss): For binary classification, uses sigmoid prediction.
+Categorical Cross Entropy: For multi-class classification, uses softmax outputs and one-hot encoded labels.
