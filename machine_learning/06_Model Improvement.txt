@@ -1,0 +1,18 @@
+Hyperparameter tuning
+- GridSearchCV
+- RandomizedSearchCV
+- Optuna/Bayesian Optimization (for advanced)
+
+Advanced models
+- XGBoost, LightGBM, CatBoost (tabular data favorites)
+- Neural Networks (if sequential or very high-dimensional data)
+
+Feature engineering
+- Interaction terms (Feature1 × Feature2)
+- Polynomial features
+- Domain-specific engineered features
+
+Ensemble methods
+- Bagging (Random Forest)
+- Boosting (XGB, LGBM, CatBoost)
+- Stacking/Blending

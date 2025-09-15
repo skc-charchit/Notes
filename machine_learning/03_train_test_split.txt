@@ -1,0 +1,6 @@
+2. Train-Test Split / Cross-Validation
+
+- Split features (X) and target (y)
+- Use train_test_split (70-30 or 80-20)
+-For classification → use stratified splits to maintain class proportions
+- Setup cross-validation (KFold, StratifiedKFold) for reliable performan

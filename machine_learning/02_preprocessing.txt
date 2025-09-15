@@ -1,0 +1,21 @@
+1. Data Preprocessing
+
+Missing values
+- Numeric → median/mean imputation
+- Categorical → mode or “Unknown”
+- Time/date features → forward fill/backward fill if sequential
+
+Drop redundant features (from correlation analysis in EDA)
+
+Handle categorical features
+- Label Encoding (for tree models)
+- One-Hot Encoding (for linear models)
+- Target/Frequency Encoding (for high-cardinality variables)
+
+Scaling numerical features
+- StandardScaler (mean=0, std=1) for SVM, Logistic Regression, NN
+- MinMaxScaler (0–1) for distance-based models (KNN)
+- Skip scaling for tree-based models (RandomForest, XGBoost, LightGBM, CatBoost)
+
+Handle imbalance in target
+- Classification only → SMOTE, oversampling, undersampling, or class_weight

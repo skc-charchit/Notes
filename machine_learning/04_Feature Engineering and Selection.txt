@@ -1,0 +1,125 @@
+Feature Selection / Dimensionality Reduction
+
+Filter methods
+- Remove low-variance features
+- Use correlation threshold (drop one of highly correlated pairs)
+
+Wrapper methods
+- Recursive Feature Elimination (RFE)
+
+Embedded methods
+- Feature importance from Random Forest / XGBoost
+- L1 regularization (Lasso)
+
+Dimensionality reduction (if many features)
+- PCA (Principal Component Analysis)
+- t-SNE / UMAP (for visualization, not modeling)
+
+=====================================================
+
+1️. Feature Engineering (Add Signal)
+
+Definition: Creating new or transforming existing features to make them more informative for the model.
+
+When: After preprocessing (clean, scaled, encoded data), before feature selection.
+
+Purpose:
+- Improve model performance by adding meaningful information.
+- Capture hidden relationships between variables.
+
+Techniques:
+A. Handling Missing Values
+
+- Impute numeric features → mean, median, 0
+- Impute categorical features → mode, “Unknown”
+- Add missing indicator flags → 1 if missing, 0 otherwise
+
+B. Encoding Categorical Variables
+- Label Encoding → convert categories to numbers (for tree models)
+- One-Hot Encoding → create binary columns per category (linear models)
+- Target/Frequency Encoding → high-cardinality categorical variables
+
+C. Transforming Numerical Features
+- Log transform → reduce skewness
+- Polynomial features → x², x³, interaction terms (x1*x2)
+- Binning → continuous → categorical ranges
+
+D. Domain-Specific Features
+- Extract components from datetime → year, month, day, weekday
+- Text features → word count, TF-IDF, sentiment scores
+- Ratios / differences → e.g., price / area, energy_per_minute
+
+E. Aggregation / Group Features
+- Group-based stats → mean, median, max per category
+- Rolling averages / lag features → for time-series data
+
+Visuals to check engineered features:
+- Histogram / KDE → to see distribution
+- Boxplot → for outliers
+- Barplot → for categorical encodings
+
+2️. Feature Selection (Remove Noise)
+
+Definition: Picking the most relevant features for your model while removing irrelevant or redundant ones.
+
+When: After feature engineering (so both raw + engineered features are considered).
+
+Purpose:
+- Reduce model complexity and overfitting
+- Speed up training
+- Improve interpretability
+
+Methods:
+
+A. Filter Methods (Statistical)
+- Remove low-variance features (near-constant features)
+- Correlation threshold → drop one of highly correlated numeric pairs
+
+- Chi-square test → categorical vs target (classification)
+
+- ANOVA F-test → numeric vs target (classification/regression)
+
+B. Wrapper Methods (Model-Based Search)
+- Recursive Feature Elimination (RFE) → iteratively remove least important features
+- Forward / Backward feature selection → add/remove features based on performance
+
+C. Embedded Methods (During Model Training)
+- Tree-based models → feature importance (Random Forest, XGBoost, LightGBM)
+- Linear models with regularization → L1 (Lasso) shrinks coefficients of irrelevant features to zero
+
+Visuals / Checks:
+- Feature importance bar chart (tree-based or Lasso coefficients)
+- Correlation heatmap for multicollinearity
+
+3️. Dimensionality Reduction (Optional, if many features)
+
+Definition: Reduce number of features while retaining most of the information.
+
+Purpose:
+- Reduce overfitting
+- Handle high-dimensional data
+- Visualize complex datasets
+
+Techniques:
+- PCA (Principal Component Analysis) → creates uncorrelated components explaining maximum variance
+- t-SNE / UMAP → for visualization (2D/3D plots)
+- Other techniques → Autoencoders, Factor Analysis
+
+Visuals / Checks:
+- Scree plot / explained variance ratio → choose number of components
+- 2D / 3D scatter plots of principal components colored by target
+
+===================================================
+
+Suggested Workflow
+
+1. Preprocessing → clean, encode, scale features
+2. Feature Engineering → add signal (new features, transformations)
+3. Feature Selection → remove irrelevant/redundant features
+4. Dimensionality Reduction → optional, if too many features
+5. Model Training → use selected/reduced features
+
+✅ Shortcut memory trick:
+Feature Engineering = Add signal
+Feature Selection = Remove noise
+Dimensionality Reduction = Compress without losing info

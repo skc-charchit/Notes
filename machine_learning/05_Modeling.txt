@@ -1,0 +1,10 @@
+4. Baseline Modeling
+Start with simple models to set a performance benchmark:
+- Classification → Logistic Regression, Random Forest
+- Regression → Linear Regression, Decision Tree Regressor
+
+Evaluate with appropriate metrics:
+- Classification → Accuracy, Precision, Recall, F1, ROC-AUC
+- Regression → RMSE, MAE, R²
+
+This helps you check if preprocessing worked correctly.

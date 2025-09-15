@@ -1,0 +1,5 @@
+- Retrain final model on full training set
+- Predict on test set
+- Post-process predictions (rounding, thresholds, etc.)
+- Format predictions into submission.csv in Kaggle’s required format
+- Submit & iterate!

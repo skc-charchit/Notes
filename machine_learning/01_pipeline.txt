@@ -1,0 +1,132 @@
+Must-do (core steps, always):
+
+1. Dataset Overview
+2. Missing Values
+3. Target Analysis (imbalance, distribution)
+4. Feature-wise Univariate Analysis
+5. Bivariate (Feature ↔ Target)
+6. Feature Relationships (correlation heatmap)
+
+Do if needed (depends on dataset & problem):
+
+7. Multivariate Analysis (PCA, pairplots, clustering)
+8. Outlier Detection (if your model is sensitive, like linear models, KNN, SVM)
+9. Feature Engineering (always iterative, based on EDA findings)
+
+Critical safeguard:
+10. Data Leakage Check
+
+==================================================
+
+1. Dataset Overview
+- Load dataset (pd.read_csv)
+- Check dataset dimensions (df.shape)
+- Preview first rows (df.head())
+- Data types of columns (df.dtypes, df.info())
+- Summary statistics for numeric and categorical (df.describe(include="all"))
+- Count unique values per column (df.nunique())
+- Check for duplicate rows (df.duplicated().sum())
+
+===================================================
+
+2. Missing Values
+- Count missing values per column (df.isnull().sum())
+- Percentage of missing values (df.isnull().mean() * 100)
+- Visualize missing values (sns.heatmap(df.isnull()) or missingno.matrix(df))
+
+Strategy:
+- Drop columns with very high missing (> 80%)
+- Impute numeric → mean/median/0
+- Impute categorical → mode/“Unknown”
+- Consider missingness indicator features
+
+===================================================
+
+3. Target Analysis (Univariate)
+- Plot distribution of target variable
+- Classification → bar chart, countplot (sns.countplot)
+- Regression → histogram, KDE plot (sns.histplot, sns.kdeplot)
+- Check class imbalance (for classification) (df[target].value_counts(normalize=True))
+- Outliers in target (boxplot)
+- Skewness of target (df[target].skew())
+
+===================================================
+
+4. Feature-wise Univariate Analysis
+
+Numerical Features
+- Distribution plots (histograms, KDE)
+- Boxplots to detect outliers
+- Skewness check
+
+Categorical Features
+- Value counts for each category
+- Bar plots (sns.countplot)
+- Check rare categories (very low frequency values)
+
+===================================================
+
+Bivariate Analysis (Feature ↔ Target)
+
+Numeric vs Target
+Regression → scatterplots, correlation, line plots
+Classification → boxplots, violin plots, t-tests
+
+Categorical vs Target
+Classification → countplots grouped by target, chi-square test
+Regression → bar plots of mean target per category
+
+Correlation of each feature with target
+
+===================================================
+
+6. Feature Relationships (Feature ↔ Feature)
+
+- Correlation matrix for numeric features (df.corr())
+- Heatmap of correlations (sns.heatmap)
+- Pairplots (sns.pairplot) for top features
+- Scatterplots for highly correlated pairs
+- Multicollinearity check using VIF (for linear models)
+
+===================================================
+
+7. Multivariate Analysis
+- Crosstabs and pivot tables (pd.crosstab)
+- Grouped boxplots and violin plots
+- Pairplots with hue (target highlighted)
+- PCA, t-SNE, or UMAP for dimensionality reduction and visualization (optional)
+- Clustering (k-means, DBSCAN) to explore groupings (optional)
+
+===================================================
+
+8. Outlier Detection
+- Visual outlier detection (boxplots, scatterplots)
+
+Statistical methods:
+- Z-score (values > 3 std from mean)
+- IQR rule (values outside Q1 - 1.5IQR or Q3 + 1.5IQR)
+
+Decide:
+- Remove outliers
+- Cap them (winsorization)
+- Apply transformations (log, Box-Cox, Yeo-Johnson)
+
+===================================================
+
+9. Feature Engineering Ideas
+- Create new features from existing ones (ratios, differences, interactions)
+
+Encode categorical features:
+- Label encoding, One-hot encoding, Target/frequency encoding
+- Handle skewed features (log or Box-Cox transforms)
+- Normalize/standardize features if needed
+- Aggregate features (e.g., group-based statistics)
+
+===================================================
+
+
+10. Data Leakage Check
+- Make sure no feature directly reveals the target
+- Check correlations with target that are unrealistically high (> 0.99)
+- Remove features derived from the target (like “final score” when predicting pass/fail)
+- Ensure test data preprocessing uses only training set info (avoid leakage from test into train)
